@@ -1,0 +1,264 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(Choice());
+
+class Choice extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "choice menu",
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text("Getting started"),
+          ),
+          body: Choices()),
+    );
+  }
+}
+
+class Choices extends StatefulWidget {
+  @override
+  _ChoicesState createState() => _ChoicesState();
+}
+
+class _ChoicesState extends State<Choices> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.all(5.0),
+            margin: EdgeInsets.all(5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RaisedButton(
+                    child: Text("Agent/Vendor Login"),
+                    onPressed: () {
+
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    }),
+                RaisedButton(
+                  child: Text("Agent/Vendor Sign up"),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUp()));
+                  },
+                )
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(5.0),
+            margin: EdgeInsets.all(5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RaisedButton(
+                    child: Text("Bride log in"),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    }),
+                RaisedButton(
+                  child: Text("Bride sign up"),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUp()));
+                  },
+                )
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(5.0),
+            margin: EdgeInsets.all(5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                RaisedButton(
+                    child: Text("Groom log in"),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    }),
+                RaisedButton(
+                  child: Text("Groom sign up"),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUp()));
+                  },
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class Planner extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Wedding planner",
+      home: LoginPage(),
+    );
+  }
+}
+
+class LoginPage extends StatefulWidget {
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String userid, password;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text("Welcome To Wedding planner"),
+        ),
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+                padding: EdgeInsets.all(10.0),
+                margin: EdgeInsets.all(10.0),
+                child: TextField(
+                  maxLength: 30,
+                  decoration: InputDecoration.collapsed(
+                      hintText: "User Id", border: OutlineInputBorder()),
+                  onChanged: (text) {
+                    userid = text;
+                  },
+                )),
+            Container(
+                margin: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(10.0),
+                child: TextField(
+                  decoration: InputDecoration.collapsed(
+                      hintText: "Password", border: OutlineInputBorder()),
+                  obscureText: true,
+                  maxLength: 30,
+                  onChanged: (text) {
+                    password = text;
+                  },
+                )),
+            Container(
+              padding: EdgeInsets.all(5.0),
+              margin: EdgeInsets.all(5.0),
+              child: RaisedButton(
+                child: Text("Sign In"),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => null));
+                },
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(5.0),
+              margin: EdgeInsets.all(5.0),
+              child: RaisedButton(
+                  child: Text("Sign up"),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUpPage()));
+                  }),
+            ),
+          ],
+        )));
+  }
+}
+
+class SignUpPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Sign Up Page",
+      home: Scaffold(
+        appBar: AppBar(
+            title: Text(
+          "Sign Up",
+        )),
+        body: Center(
+          child: SignUp(),
+        ),
+      ),
+    );
+  }
+}
+
+class SignUp extends StatefulWidget {
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  String email, pass, pass1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: Center(
+            child: Column(
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
+          child: TextField(
+            decoration: InputDecoration.collapsed(hintText: "Email Address."),
+            onChanged: (text) {
+              email = text;
+            },
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
+          child: TextField(
+            decoration: InputDecoration.collapsed(hintText: "Password"),
+            onChanged: (text) {
+              pass = text;
+            },
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.all(10.0),
+          margin: EdgeInsets.all(10.0),
+          child: TextField(
+            decoration: InputDecoration.collapsed(hintText: "Re-type password"),
+            onChanged: (text) {
+              pass1 = text;
+            },
+          ),
+        ),
+        RaisedButton(
+            child: Text("Go Back!"),
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+        RaisedButton(
+          child: Text("Create Account"),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => null));
+          },
+        )
+      ],
+    )));
+  }
+}
+
+
+-- 
+With Regards
+Ketan Patel
