@@ -1,0 +1,134 @@
+import 'package:flutter/material.dart';
+
+void main()=> runApp(Budget());
+
+class Budget extends StatelessWidget {
+
+  double limit;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Wedding Planner',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Budget"),
+        ),
+        body: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(15.0),
+                child: TextField(
+                  decoration: InputDecoration.collapsed(hintText: "Enter Your Budget"),
+                  onChanged: (text) {
+                    limit = double.parse(text);
+                  },
+                  maxLength: 9,
+                ),
+              ),
+              RaisedButton(
+                child: Text("Next"),
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ListofServices()),);
+                },
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ListofServices extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(10.0),
+      child: ListView(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
+            child: RaisedButton(
+                child: Text("Select Venue"),
+                onPressed: null),
+          ), //venue
+          Container(
+            margin: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
+            child: RaisedButton(
+                child: Text("Select Photographer"),
+                onPressed: null),
+          ),//photographer
+          Container(
+            margin: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
+            child: RaisedButton(
+                child: Text("Select Florist"),
+                onPressed: null),
+          ),//florist
+          Container(
+            margin: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
+            child: RaisedButton(
+                child: Text("Select Caterer"),
+                onPressed: null),
+          ),//caterer
+          Container(
+            margin: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
+            child: RaisedButton(
+                child: Text("Select DJ/music theme"),
+                onPressed: null),
+          ),//dj
+          Container(
+            margin: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
+            child: RaisedButton(
+                child: Text("Select Hotels"),
+                onPressed: null),
+          ),//hotels
+          Container(
+            margin: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
+            child: RaisedButton(
+                child: Text("Select Wearables"),
+                onPressed: null),
+          ),//dress
+          Container(
+            margin: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
+            child: RaisedButton(
+                child: Text("Select Salon"),
+                onPressed: null),
+          ),//salon
+          Container(
+            margin: EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
+            child: RaisedButton(
+                child: Text("Select Jewellary"),
+                onPressed: null),
+          ),//jewellery
+          Container(
+            padding: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(10.0),
+            child: RaisedButton(
+                child: Text("Go Back"),
+                onPressed: (){
+                  Navigator.pop(context);
+                }),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+-- 
+With Regards
+Ketan Patel
